@@ -25,7 +25,7 @@ Game::Game()
     setScene(scene);
 
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(spawn()));
-    timer->start(2000);
+    timer->start(1300);
 
 
 

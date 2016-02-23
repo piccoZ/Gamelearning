@@ -6,6 +6,11 @@
 #include <QDebug>
 #include <Enemy.h>
 
+MyRect::MyRect()
+{
+    watchdog.start();
+}
+
 void MyRect::keyPressEvent(QKeyEvent *event)
 {
     switch(event->key())
@@ -27,9 +32,13 @@ void MyRect::keyPressEvent(QKeyEvent *event)
         case Qt::Key_Space:
             {
                 //std::shared_ptr<Bullet> bullet(new Bullet);
+                if(!watchdog.hasExpired(500))
+                    break;
+
                 Bullet* bullet = new Bullet;
                 scene()->addItem(bullet);
                 bullet->setPos(x()+45,y());
+                watchdog.restart();
                 break;
             }
         default:

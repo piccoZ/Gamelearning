@@ -14,7 +14,7 @@ Bullet::Bullet()
 
    connect(timer,SIGNAL(timeout()),this, SLOT(move()));
 
-   timer->start(50);
+   timer->start(40);
 }
 
 void Bullet::move()

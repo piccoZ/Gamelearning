@@ -3,10 +3,13 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsItem>
 #include <QObject>
+#include <QElapsedTimer>
 
 
 class MyRect: public QObject, public QGraphicsRectItem{
+    QElapsedTimer watchdog;
 public:
+    MyRect();
     void keyPressEvent(QKeyEvent* event);
 };
 
